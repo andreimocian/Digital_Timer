@@ -42,6 +42,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -54,12 +55,12 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/UTCN/Sem2/DSD/Labs/ProjectCounter/ProjectCounter.cache/wt [current_project]
-  set_property parent.project_path D:/UTCN/Sem2/DSD/Labs/ProjectCounter/ProjectCounter.xpr [current_project]
-  set_property ip_output_repo D:/UTCN/Sem2/DSD/Labs/ProjectCounter/ProjectCounter.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.cache/wt [current_project]
+  set_property parent.project_path D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.xpr [current_project]
+  set_property ip_output_repo D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/UTCN/Sem2/DSD/Labs/ProjectCounter/ProjectCounter.runs/synth_1/ExecutionUnit.dcp
-  read_xdc {{D:/UTCN/Sem2/DSD/Labs/ProjectCounter/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc}}
+  add_files -quiet D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/ExecutionUnit.dcp
+  read_xdc {{D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc}}
   link_design -top ExecutionUnit -part xc7a35tcpg236-1
   write_hwdef -file ExecutionUnit.hwdef
   close_msg_db -file init_design.pb

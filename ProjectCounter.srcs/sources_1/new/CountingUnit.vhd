@@ -36,8 +36,8 @@ entity CountingUnit is
          UD: in STD_LOGIC;
          RST: in STD_LOGIC;
          EN: in STD_LOGIC;
-         --IMIN: in STD_LOGIC;
-         --ISEC: in STD_LOGIC;
+         IMIN: in STD_LOGIC;
+         ISEC: in STD_LOGIC;
          displayed_minutes10: out STD_LOGIC_VECTOR (3 downto 0);
          displayed_minutes01: out STD_LOGIC_VECTOR (3 downto 0);
          displayed_seconds10: out STD_LOGIC_VECTOR (3 downto 0);
@@ -54,6 +54,8 @@ signal AUXISEC: STD_LOGIC;
 signal AUXIMIN: STD_LOGIC;
 signal AUXCLKMIN: STD_LOGIC;
 signal AUXCLKSEC: STD_LOGIC;
+signal AUXEN: STD_LOGIC;
+signal AUX1EN: STD_LOGIC;
 
 component FreqDiv is
     port(CLK: in STD_LOGIC;
@@ -79,14 +81,43 @@ component CounterDigit5 is
 end component;
 begin
     
-    --AUXISEC <= EN or ISEC;
-    --AUXIMIN <= EN or IMIN;
-    --AUXCLKMIN <= CLK or AUXISEC;
-    --AUXCLKSEC <= AUX1 or AUXIMIN;
+    AUXISEC <= EN or ISEC;
+    AUXIMIN <= EN or IMIN;
+    AUXCLKSEC <= CLK or ISEC;
+    AUXCLKMIN <= AUX1 xor IMIN;
+    --AUXEN <= IMIN or ISEC or EN;
+    --AUX1EN <= AUX1 xor AUX1;
+              
+--    process(EN)
+--    begin
+--        case EN is
+--            when '0' =>
+--                --AUXISEC <= ISEC;
+--                AUXCLKSEC <= ISEC;
+--            when others => 
+--                --AUXISEC <= EN;
+--                AUXCLKSEC <= CLK;
+--            end case;
+--    end process;
     
-    CS01: CounterDigit port map(RST => RST, CLK => CLK, UD => UD, EN => EN, TC0 => AUX0, OUTPUT => displayed_seconds01);
-    CS10: CounterDigit5 port map(RST => RST, CLK => AUX0, UD => UD, EN => EN, TC0 => AUX1, OUTPUT => displayed_seconds10);
-    CM01: CounterDigit port map(RST => RST, CLK => AUX1, UD => UD, EN => EN, TC0 => AUX2, OUTPUT => displayed_minutes01);
-    CM10: CounterDigit port map(RST => RST, CLK => AUX2, UD => UD, EN => EN, TC0=> AUX3, OUTPUT => displayed_minutes10);
+--    process(EN, IMIN)
+--        begin
+--            case EN is
+--                when '0' =>
+--                    --AUXIMIN <= IMIN;
+--                    AUXCLKMIN <= IMIN;
+--                when others => 
+--                    --AUXIMIN <= EN;
+--                    AUXCLKMIN <= AUX1;
+--                end case;
+--        end process;
+    
+    --AUXISEC <= ISEC or EN;
+    --AUXIMIN <= IMIN or EN;
+    
+    CS01: CounterDigit port map(RST => RST, CLK => AUXCLKSEC, UD => UD, EN => AUXISEC, TC0 => AUX0, OUTPUT => displayed_seconds01);
+    CS10: CounterDigit5 port map(RST => RST, CLK => AUX0, UD => UD, EN => AUXISEC, TC0 => AUX1, OUTPUT => displayed_seconds10);
+    CM01: CounterDigit port map(RST => RST, CLK => AUXCLKMIN, UD => UD, EN => AUXIMIN, TC0 => AUX2, OUTPUT => displayed_minutes01);
+    CM10: CounterDigit port map(RST => RST, CLK => AUX2, UD => UD, EN => AUXIMIN, TC0=> AUX3, OUTPUT => displayed_minutes10);
 
 end Behavioral;

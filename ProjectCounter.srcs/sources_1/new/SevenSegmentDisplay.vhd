@@ -44,7 +44,7 @@ end SevenSegmentDisplay;
 
 architecture Behavioral of SevenSegmentDisplay is
 signal LED_BCD: STD_LOGIC_VECTOR (3 downto 0);
-signal refresh_counter: STD_LOGIC_VECTOR (17 downto 0);
+    signal refresh_counter: STD_LOGIC_VECTOR (12 downto 0);
 signal LED_activating_counter: std_logic_vector(1 downto 0);
 begin
     process(LED_BCD)
@@ -70,7 +70,7 @@ begin
             refresh_counter <= refresh_counter + 1;
         end if;
     end process;
-    LED_activating_counter <= refresh_counter(17 downto 16);
+    LED_activating_counter <= refresh_counter(12 downto 11);
 
     process(LED_activating_counter)
     begin
