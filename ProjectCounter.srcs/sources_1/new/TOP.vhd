@@ -74,6 +74,6 @@ end component;
 begin
 
     CU: CommandUnit port map(CLK => CLK, BMIN => BMIN, BSEC => BSEC, BEN => BEN, UD => AUXUD, IMIN => AUXIMIN, ISEC => AUXISEC, RST => AUXRST, EN => AUXEN);
-    --EU: ExecutionUnit port map(RST => AUXRST, CLK => CLK, UD => AUXUD, EN => AUXEN, IMIN => AUXIMIN, ISEC => AUXISEC, Anode_Activate => Anode_Activate, LED_out => LED_out);
+    EU: ExecutionUnit port map(RST => AUXRST, CLK => CLK, UD => AUXUD, EN => AUXEN, IMIN => AUXIMIN, ISEC => AUXISEC, Anode_Activate => Anode_Activate, LED_out => LED_out);
     
 end Behavioral;

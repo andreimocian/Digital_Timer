@@ -2,39 +2,55 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Tue May 07 20:12:08 2024
-# Process ID: 19704
+# Start of session at: Tue May 07 20:29:47 2024
+# Process ID: 9604
 # Current directory: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1
-# Command line: vivado.exe -log ExecutionUnit.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ExecutionUnit.tcl
-# Log file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/ExecutionUnit.vds
+# Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
+# Log file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/TOP.vds
 # Journal file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source ExecutionUnit.tcl -notrace
-Command: synth_design -top ExecutionUnit -part xc7a35tcpg236-1
+source TOP.tcl -notrace
+Command: synth_design -top TOP -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18628 
+INFO: Helper process launched with PID 18108 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 282.625 ; gain = 72.609
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 283.184 ; gain = 72.891
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TOP.vhd:43]
+INFO: [Synth 8-3491] module 'CommandUnit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:34' bound to instance 'CU' of component 'CommandUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TOP.vhd:76]
+INFO: [Synth 8-638] synthesizing module 'CommandUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:46]
+INFO: [Synth 8-3491] module 'Debouncer' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd:5' bound to instance 'DBEN' of component 'Debouncer' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:64]
+INFO: [Synth 8-638] synthesizing module 'Debouncer' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'Debouncer' (1#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd:11]
+INFO: [Synth 8-3491] module 'Debouncer' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd:5' bound to instance 'DBMIN' of component 'Debouncer' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:65]
+INFO: [Synth 8-3491] module 'Debouncer' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd:5' bound to instance 'DBSEC' of component 'Debouncer' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:66]
+INFO: [Synth 8-3491] module 'TFlipFlop' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd:34' bound to instance 'TFFUD' of component 'TFlipFlop' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'TFlipFlop' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'TFlipFlop' (2#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd:40]
+WARNING: [Synth 8-3848] Net UD in module/entity CommandUnit does not have driver. [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:39]
+WARNING: [Synth 8-3848] Net IMIN in module/entity CommandUnit does not have driver. [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:40]
+WARNING: [Synth 8-3848] Net ISEC in module/entity CommandUnit does not have driver. [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'CommandUnit' (3#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd:46]
+INFO: [Synth 8-3491] module 'ExecutionUnit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:34' bound to instance 'EU' of component 'ExecutionUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TOP.vhd:77]
 INFO: [Synth 8-638] synthesizing module 'ExecutionUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:50]
 INFO: [Synth 8-3491] module 'FreqDiv' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd:35' bound to instance 'FD1' of component 'FreqDiv' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:95]
 INFO: [Synth 8-638] synthesizing module 'FreqDiv' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd:40]
 WARNING: [Synth 8-614] signal 'TEMP' is read in the process but is not in the sensitivity list [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd:44]
-INFO: [Synth 8-256] done synthesizing module 'FreqDiv' (1#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'FreqDiv' (4#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd:40]
 INFO: [Synth 8-3491] module 'CountingUnit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:34' bound to instance 'CU' of component 'CountingUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:96]
 INFO: [Synth 8-638] synthesizing module 'CountingUnit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:47]
 INFO: [Synth 8-3491] module 'CounterDigit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:35' bound to instance 'CS01' of component 'CounterDigit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:118]
 INFO: [Synth 8-638] synthesizing module 'CounterDigit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:44]
-INFO: [Synth 8-256] done synthesizing module 'CounterDigit' (2#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'CounterDigit' (5#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:44]
 INFO: [Synth 8-3491] module 'CounterDigit5' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd:35' bound to instance 'CS10' of component 'CounterDigit5' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:119]
 INFO: [Synth 8-638] synthesizing module 'CounterDigit5' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd:44]
-INFO: [Synth 8-256] done synthesizing module 'CounterDigit5' (3#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'CounterDigit5' (6#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd:44]
 INFO: [Synth 8-3491] module 'CounterDigit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:35' bound to instance 'CM01' of component 'CounterDigit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:120]
 INFO: [Synth 8-3491] module 'CounterDigit' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:35' bound to instance 'CM10' of component 'CounterDigit' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:121]
-INFO: [Synth 8-256] done synthesizing module 'CountingUnit' (4#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'CountingUnit' (7#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd:47]
 INFO: [Synth 8-3491] module 'SevenSegmentDisplay' declared at 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:35' bound to instance 'SSD' of component 'SevenSegmentDisplay' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:97]
 INFO: [Synth 8-638] synthesizing module 'SevenSegmentDisplay' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:45]
 INFO: [Synth 8-226] default block is never used [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:77]
@@ -42,10 +58,15 @@ WARNING: [Synth 8-614] signal 'displayed_minutes10_ssd' is read in the process b
 WARNING: [Synth 8-614] signal 'displayed_minutes01_ssd' is read in the process but is not in the sensitivity list [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:75]
 WARNING: [Synth 8-614] signal 'displayed_seconds10_ssd' is read in the process but is not in the sensitivity list [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:75]
 WARNING: [Synth 8-614] signal 'displayed_seconds01_ssd' is read in the process but is not in the sensitivity list [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:75]
-INFO: [Synth 8-256] done synthesizing module 'SevenSegmentDisplay' (5#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'ExecutionUnit' (6#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'SevenSegmentDisplay' (8#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'ExecutionUnit' (9#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'TOP' (10#1) [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TOP.vhd:43]
+WARNING: [Synth 8-3331] design TFlipFlop has unconnected port T
+WARNING: [Synth 8-3331] design CommandUnit has unconnected port UD
+WARNING: [Synth 8-3331] design CommandUnit has unconnected port IMIN
+WARNING: [Synth 8-3331] design CommandUnit has unconnected port ISEC
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 319.949 ; gain = 109.934
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 320.582 ; gain = 110.289
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -55,7 +76,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 319.949 ; gain = 109.934
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 320.582 ; gain = 110.289
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -64,35 +85,35 @@ Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc]
 Finished Parsing XDC File [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ExecutionUnit_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/ExecutionUnit_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 616.324 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 615.957 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd:53]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd:53]
 WARNING: [Synth 8-327] inferring latch for variable 'LED_out_reg' [D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd:53]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -110,7 +131,7 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
 	                4 Bit    Registers := 4     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 11    
 +---Muxes : 
 	   2 Input      4 Bit        Muxes := 8     
 	   4 Input      4 Bit        Muxes := 2     
@@ -123,6 +144,14 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module Debouncer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 3     
+Module TFlipFlop 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
 Module FreqDiv 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -169,8 +198,16 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (CU/DBMIN/q1_reg) is unused and will be removed from module TOP.
+WARNING: [Synth 8-3332] Sequential element (CU/DBMIN/q2_reg) is unused and will be removed from module TOP.
+WARNING: [Synth 8-3332] Sequential element (CU/DBMIN/q3_reg) is unused and will be removed from module TOP.
+WARNING: [Synth 8-3332] Sequential element (CU/DBSEC/q1_reg) is unused and will be removed from module TOP.
+WARNING: [Synth 8-3332] Sequential element (CU/DBSEC/q2_reg) is unused and will be removed from module TOP.
+WARNING: [Synth 8-3332] Sequential element (CU/DBSEC/q3_reg) is unused and will be removed from module TOP.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\EU/CU/CS10/COUNT_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (EU/CU/CS10/COUNT_reg[3]) is unused and will be removed from module TOP.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -185,10 +222,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -200,7 +237,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -224,7 +261,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -237,7 +274,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -249,25 +286,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -284,41 +321,45 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |    15|
-|3     |LUT1   |    39|
-|4     |LUT2   |    25|
-|5     |LUT3   |     2|
-|6     |LUT4   |     7|
-|7     |LUT5   |    18|
-|8     |LUT6   |     5|
-|9     |FDCE   |    16|
-|10    |FDRE   |    40|
+|2     |CARRY4 |    19|
+|3     |LUT1   |    56|
+|4     |LUT2   |    26|
+|5     |LUT3   |     8|
+|6     |LUT4   |    20|
+|7     |LUT5   |     2|
+|8     |LUT6   |     4|
+|9     |FDCE   |    15|
+|10    |FDRE   |    60|
 |11    |LD     |     7|
-|12    |IBUF   |     6|
+|12    |IBUF   |     4|
 |13    |OBUF   |    11|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+---------+--------------------+------+
-|      |Instance |Module              |Cells |
-+------+---------+--------------------+------+
-|1     |top      |                    |   192|
-|2     |  CU     |CountingUnit        |    49|
-|3     |    CM01 |CounterDigit        |     9|
-|4     |    CM10 |CounterDigit_0      |     9|
-|5     |    CS01 |CounterDigit_1      |    21|
-|6     |    CS10 |CounterDigit5       |    10|
-|7     |  FD1    |FreqDiv             |    84|
-|8     |  SSD    |SevenSegmentDisplay |    41|
-+------+---------+--------------------+------+
++------+-----------+--------------------+------+
+|      |Instance   |Module              |Cells |
++------+-----------+--------------------+------+
+|1     |top        |                    |   233|
+|2     |  CU       |CommandUnit         |    46|
+|3     |    DBEN   |Debouncer           |    44|
+|4     |    TFFUD  |TFlipFlop           |     2|
+|5     |  EU       |ExecutionUnit       |   171|
+|6     |    CU     |CountingUnit        |    46|
+|7     |      CM01 |CounterDigit        |     9|
+|8     |      CM10 |CounterDigit_0      |     9|
+|9     |      CS01 |CounterDigit_1      |    21|
+|10    |      CS10 |CounterDigit5       |     7|
+|11    |    FD1    |FreqDiv             |    84|
+|12    |    SSD    |SevenSegmentDisplay |    41|
++------+-----------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 615.957 ; gain = 405.664
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:05 ; elapsed = 00:00:17 . Memory (MB): peak = 616.324 ; gain = 109.934
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:24 . Memory (MB): peak = 616.324 ; gain = 406.309
+Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:17 . Memory (MB): peak = 615.957 ; gain = 110.289
+Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 615.957 ; gain = 405.664
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 28 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -327,9 +368,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 7 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-40 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+59 Infos, 20 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:22 . Memory (MB): peak = 616.324 ; gain = 406.309
-INFO: [Common 17-1381] The checkpoint 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/ExecutionUnit.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 616.324 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue May 07 20:12:34 2024...
+synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 615.957 ; gain = 405.664
+INFO: [Common 17-1381] The checkpoint 'D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/TOP.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 615.957 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue May 07 20:30:13 2024...

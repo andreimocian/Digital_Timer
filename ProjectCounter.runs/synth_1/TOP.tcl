@@ -22,10 +22,14 @@ set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd
-  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TOP.vhd
 }
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp
@@ -34,9 +38,9 @@ read_xdc {{D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imp
 set_property used_in_implementation false [get_files {{D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/constrs_1/imports/Constraint files/Basys3_Master.xdc}}]
 
 
-synth_design -top ExecutionUnit -part xc7a35tcpg236-1
+synth_design -top TOP -part xc7a35tcpg236-1
 
 
-write_checkpoint -force -noxdef ExecutionUnit.dcp
+write_checkpoint -force -noxdef TOP.dcp
 
-catch { report_utilization -file ExecutionUnit_utilization_synth.rpt -pb ExecutionUnit_utilization_synth.pb }
+catch { report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb }

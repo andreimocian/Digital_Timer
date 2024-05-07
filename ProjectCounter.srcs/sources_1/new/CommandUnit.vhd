@@ -76,26 +76,28 @@ begin
     
     RST <= TMPRST;
     
-    process(TMPMIN)
-    begin
-        if TMPMIN = '1' then
-            UD <= '1';
-            EN <= '0';
-            IMIN <= '1';
-        else
-            IMIN <= '0';
-        end if;
-    end process;
     
-    process(TMPSEC)
-        begin
-            if TMPSEC = '1' then
-                UD <= '1';
-                EN <= '0';
-                ISEC <= '1';
-            else
-                ISEC <= '0';
-            end if;
-        end process;
+    
+--    process(TMPMIN)
+--    begin
+--        if TMPMIN = '1' then
+--            UD <= '1';
+--            EN <= '0';
+--            IMIN <= '1';
+--        else
+--            IMIN <= '0';
+--        end if;
+--    end process;
+    
+--    process(TMPSEC)
+--        begin
+--            if TMPSEC = '1' then
+--                UD <= '1';
+--                EN <= '0';
+--                ISEC <= '1';
+--            else
+--                ISEC <= '0';
+--            end if;
+--        end process;
     
 end Behavioral;
