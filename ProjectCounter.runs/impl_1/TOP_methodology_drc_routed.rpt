@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
-| Date         : Tue May 07 20:31:02 2024
+| Date         : Wed May 22 22:26:39 2024
 | Host         : LAPTOP-KN9N3SBV running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TOP_methodology_drc_routed.rpt -rpx TOP_methodology_drc_routed.rpx
 | Design       : TOP
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 28
+             Violations found: 32
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell   | 16         |
-| TIMING-18 | Warning  | Missing input or output delay | 5          |
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 17         |
+| TIMING-18 | Warning  | Missing input or output delay | 8          |
 | TIMING-20 | Warning  | Non-clocked latch             | 7          |
 +-----------+----------+-------------------------------+------------+
 
@@ -36,7 +36,7 @@ Table of Contents
 -----------------
 TIMING-17#1 Warning
 Non-clocked sequential cell  
-The clock pin CU/TFFUD/temp_reg/C is not reached by a timing clock
+The clock pin CU/TFFEN/temp_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Warning
@@ -114,6 +114,11 @@ Non-clocked sequential cell
 The clock pin EU/CU/CS10/COUNT_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
+TIMING-17#17 Warning
+Non-clocked sequential cell  
+The clock pin EU/CU/CS10/COUNT_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
 TIMING-18#1 Warning
 Missing input or output delay  
 An input delay is missing on BEN relative to clock(s) sys_clk_pin 
@@ -121,20 +126,35 @@ Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An output delay is missing on Anode_Activate[0] relative to clock(s) sys_clk_pin 
+An input delay is missing on BMIN relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An output delay is missing on Anode_Activate[1] relative to clock(s) sys_clk_pin 
+An input delay is missing on BSEC relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on Anode_Activate[2] relative to clock(s) sys_clk_pin 
+An input delay is missing on UDIN relative to clock(s) sys_clk_pin 
 Related violations: <none>
 
 TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on Anode_Activate[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on Anode_Activate[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on Anode_Activate[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#8 Warning
 Missing input or output delay  
 An output delay is missing on Anode_Activate[3] relative to clock(s) sys_clk_pin 
 Related violations: <none>

@@ -3,7 +3,6 @@
 # 
 
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -22,10 +21,10 @@ set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CounterDigit.vhd
+  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/SevenSegmentDisplay.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/FreqDiv.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CountingUnit.vhd
-  D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/Debouncer.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/ExecutionUnit.vhd
   D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.srcs/sources_1/new/CommandUnit.vhd

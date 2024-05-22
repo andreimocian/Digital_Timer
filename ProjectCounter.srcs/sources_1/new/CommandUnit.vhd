@@ -36,18 +36,41 @@ entity CommandUnit is
          BMIN: in STD_LOGIC;
          BSEC: in STD_LOGIC;
          BEN: in STD_LOGIC;
+         UDIN: in STD_LOGIC;
+         ZERO: in STD_LOGIC;
          UD: out STD_LOGIC;
          IMIN: out STD_LOGIC;
          ISEC: out STD_LOGIC;
          RST: out STD_LOGIC;
-         EN: out STD_LOGIC);
+         EN: out STD_LOGIC;
+         ZEROLED: out STD_LOGIC);
 end CommandUnit;
 
 architecture Behavioral of CommandUnit is
-    signal TMPEN: STD_LOGIC;
+    signal MINSECXOR: STD_LOGIC;
+    signal MINAND: STD_LOGIC;
+    signal SECAND: STD_LOGIC;
+    
+    signal TMPBEN: STD_LOGIC;
     signal TMPMIN: STD_LOGIC;
     signal TMPSEC: STD_LOGIC;
+    
     signal TMPRST: STD_LOGIC;
+    signal TMPIMIN: STD_LOGIC;
+    signal TMPISEC: STD_LOGIC;
+    signal TMPEN: STD_LOGIC;
+    signal TMPUD: STD_LOGIC;
+    signal TMPZERO: STD_LOGIC;
+    signal TMPZEROEN: STD_LOGIC;
+    --signal NEXTUD: STD_LOGIC;
+    
+    signal RSTUD: STD_LOGIC;
+    signal NOTUD: STD_LOGIC;
+    signal IMINSEC: STD_LOGIC;
+    signal IMINSECUD: STD_LOGIC;
+    signal TFFUDIN: STD_LOGIC;
+    signal AUXZERO: STD_LOGIC;
+    signal ZEROEX: STD_LOGIC;
     
     component Debouncer is
     Port ( CLK : in STD_LOGIC;
@@ -61,43 +84,76 @@ architecture Behavioral of CommandUnit is
              Q: out STD_LOGIC);
     end component;
 begin
-    DBEN: Debouncer port map(CLK => CLK, button => BEN, EN => TMPEN);
+    DBEN: Debouncer port map(CLK => CLK, button => BEN, EN => TMPBEN);
     DBMIN: Debouncer port map(CLK => CLK, button => BMIN, EN => TMPMIN);
     DBSEC: Debouncer port map(CLK => CLK, button => BSEC, EN => TMPSEC);
-    TFFUD: TFlipFlop port map(CLK => TMPEN, T => TMPEN, Q => EN);
-    process(BMIN, BSEC)
-    begin
-        if BMIN = '1' and BSEC = '1' then
-            TMPRST <= '1';
-         else
-            TMPRST <= '0';
-         end if;
-    end process;
+    DBSTOP: Debouncer port map(CLK => CLK, button => AUXZERO, EN => ZEROEX);
+    TFFEN: TFlipFlop port map(CLK => TMPZEROEN, T => TMPZEROEN, Q => TMPEN);
+    --TFFUD: TFlipFlop port map(CLK => RSTUD, T => RSTUD, Q => TMPUD);
     
-    RST <= TMPRST;
+---------------------FOR SIMULATION------------------------
+    --TMPBEN <= BEN;
+    --TMPMIN <= BMIN;
+    --TMPSEC <= BSEC;
+-----------------------------------------------------------
+      
+    MINSECXOR <= TMPMIN xor TMPSEC;
+    MINAND <= MINSECXOR and TMPMIN;
+    SECAND <= MINSECXOR and TMPSEC;
     
+    TMPRST <= BMIN and BSEC;
+    TMPUD <= UDIN;
     
+    AUXZERO <= ZERO and TMPUD;
     
---    process(TMPMIN)
+    TMPZEROEN <= ZEROEX or TMPBEN;
+    
+    --RSTUD <= TMPRST and TMPUD;
+    
+--    process(TMPRST, MINAND, SECAND, TMPBEN)
+--        variable NEXTUD: STD_LOGIC;
 --    begin
---        if TMPMIN = '1' then
---            UD <= '1';
---            EN <= '0';
---            IMIN <= '1';
---        else
---            IMIN <= '0';
+--        if TMPRST = '1' then
+--            TMPUD <= '0';
+--        end if;
+--        if MINAND = '1' or SECAND = '1' then
+--            NEXTUD := '1';
+--        end if;
+--        if TMPEN = '1' and NEXTUD = '1' then
+--            NEXTUD := '0';
+--            TMPUD <= '1';
 --        end if;
 --    end process;
     
---    process(TMPSEC)
---        begin
---            if TMPSEC = '1' then
---                UD <= '1';
---                EN <= '0';
---                ISEC <= '1';
---            else
---                ISEC <= '0';
---            end if;
---        end process;
+--    process(TMPRST, TMPBEN)
+--    begin
+--        if TMPRST = '1' then
+--            TMPUD <= '0';
+--        end if;
+--        if TMPBEN = '1' and NEXTUD = '1' then
+--            NEXTUD <= '0';
+--            TMPUD <= '1';
+--        end if;
+--    end process;
     
+--    process(MINAND, SECAND)
+--    begin
+--        if rising_edge(MINAND) or rising_edge(SECAND) then
+--            NEXTUD <= '1';
+--        end if;
+--    end process;
+        
+    --NOTUD <= not TMPUD;
+    --IMINSEC <= MINAND or SECAND;
+    --IMINSECUD <= NOTUD and IMINSEC;
+    --TFFUDIN <= IMINSECUD or RSTUD;
+    
+    
+    EN <= TMPEN;
+    IMIN <= MINAND;
+    ISEC <= SECAND;
+    RST <= TMPRST;
+    UD <= TMPUD;
+    ZEROLED <= AUXZERO;
+        
 end Behavioral;

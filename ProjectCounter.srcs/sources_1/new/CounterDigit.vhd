@@ -48,7 +48,7 @@ begin
         begin
             if RST = '1' then
                 COUNT <= (others => '0');
-            elsif CLK = '1' and CLK'EVENT then
+            elsif rising_edge(CLK) then
                 if EN = '1' then
                     if UD = '0' then
                         COUNT <= COUNT + 1;

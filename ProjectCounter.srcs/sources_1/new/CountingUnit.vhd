@@ -85,35 +85,8 @@ begin
     AUXIMIN <= EN or IMIN;
     AUXCLKSEC <= CLK or ISEC;
     AUXCLKMIN <= AUX1 xor IMIN;
-    --AUXEN <= IMIN or ISEC or EN;
-    --AUX1EN <= AUX1 xor AUX1;
-              
---    process(EN)
---    begin
---        case EN is
---            when '0' =>
---                --AUXISEC <= ISEC;
---                AUXCLKSEC <= ISEC;
---            when others => 
---                --AUXISEC <= EN;
---                AUXCLKSEC <= CLK;
---            end case;
---    end process;
+
     
---    process(EN, IMIN)
---        begin
---            case EN is
---                when '0' =>
---                    --AUXIMIN <= IMIN;
---                    AUXCLKMIN <= IMIN;
---                when others => 
---                    --AUXIMIN <= EN;
---                    AUXCLKMIN <= AUX1;
---                end case;
---        end process;
-    
-    --AUXISEC <= ISEC or EN;
-    --AUXIMIN <= IMIN or EN;
     
     CS01: CounterDigit port map(RST => RST, CLK => AUXCLKSEC, UD => UD, EN => AUXISEC, TC0 => AUX0, OUTPUT => displayed_seconds01);
     CS10: CounterDigit5 port map(RST => RST, CLK => AUX0, UD => UD, EN => AUXISEC, TC0 => AUX1, OUTPUT => displayed_seconds10);

@@ -38,6 +38,7 @@ entity ExecutionUnit is
          EN: in STD_LOGIC;
          IMIN: in STD_LOGIC;
          ISEC: in STD_LOGIC;
+         ZERO: out STD_LOGIC;
          Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);
          LED_out : out STD_LOGIC_VECTOR (6 downto 0));
          ------------------------------------------------------
@@ -99,5 +100,14 @@ begin
     --displayed_minutes01 <= displayed_minutes_temp01;
     --displayed_seconds10 <= displayed_seconds_temp10;
     --displayed_seconds01 <= displayed_seconds_temp01;
+    process(displayed_minutes_temp10, displayed_minutes_temp01, displayed_seconds_temp10, displayed_seconds_temp01)
+    begin
+        if displayed_minutes_temp10 = "0000" and displayed_minutes_temp01 = "0000" and displayed_seconds_temp10 = "0000" and displayed_seconds_temp01 = "0000" then
+            ZERO <= '1';
+        else
+            ZERO <= '0';
+        end if;
+    end process;
+    
     
 end Behavioral;

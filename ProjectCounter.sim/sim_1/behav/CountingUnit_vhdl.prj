@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/CounterDigit5.vhd"
-vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/CounterDigit.vhd"
-vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/CountingUnit.vhd"
-
-# Do not sort compile order
-nosort
