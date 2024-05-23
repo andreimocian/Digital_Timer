@@ -1,35 +1,5 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 04/20/2024 10:30:47 PM
--- Design Name: 
--- Module Name: CountingUnit - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CountingUnit is
     Port(CLK: in STD_LOGIC;
@@ -78,17 +48,13 @@ component CounterDigit5 is
          OUTPUT: out STD_LOGIC_VECTOR(3 downto 0));  
 end component;
 begin
-    
     AUXISEC <= EN or ISEC;
     AUXIMIN <= EN or IMIN;
     AUXCLKSEC <= CLK or ISEC;
     AUXCLKMIN <= AUX1 xor IMIN;
 
-    
-    
     CS01: CounterDigit port map(RST => RST, CLK => AUXCLKSEC, UD => UD, EN => AUXISEC, TC0 => AUX0, OUTPUT => displayed_seconds01);
     CS10: CounterDigit5 port map(RST => RST, CLK => AUX0, UD => UD, EN => AUXISEC, TC0 => AUX1, OUTPUT => displayed_seconds10);
     CM01: CounterDigit port map(RST => RST, CLK => AUXCLKMIN, UD => UD, EN => AUXIMIN, TC0 => AUX2, OUTPUT => displayed_minutes01);
     CM10: CounterDigit port map(RST => RST, CLK => AUX2, UD => UD, EN => AUXIMIN, TC0=> AUX3, OUTPUT => displayed_minutes10);
-
 end Behavioral;

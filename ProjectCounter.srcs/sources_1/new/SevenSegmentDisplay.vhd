@@ -1,36 +1,6 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 04/20/2024 08:27:40 PM
--- Design Name: 
--- Module Name: SevenSegmentDisplay - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity SevenSegmentDisplay is
     Port(CLK: in STD_LOGIC;
@@ -60,7 +30,7 @@ begin
             when "0111" => LED_out <= "0001111"; -- "7" 
             when "1000" => LED_out <= "0000000"; -- "8"     
             when "1001" => LED_out <= "0000100"; -- "9" 
-            when others => --LED_OUT <= "0000000";
+            when others =>
         end case;
     end process;
     
@@ -88,8 +58,6 @@ begin
                 Anode_Activate <= "1110"; 
                 LED_BCD <= displayed_seconds01_ssd(3 downto 0);  
             when others => 
-                --Anode_Activate <= "1111"; 
-                --LED_BCD <= displayed_minutes(7 downto 4);
             end case;
     end process;
 end Behavioral;
