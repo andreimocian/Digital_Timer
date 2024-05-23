@@ -43,10 +43,6 @@ signal TEMP: STD_LOGIC;
 begin
     process(CLK)
     begin
-        --if RST = '1' then
-          --  COUNT <= (others => '0');
-            --TEMP <= '0';
-        --end if;
         if CLK = '1' and CLK'EVENT then
             COUNT <= COUNT + 1;
             if COUNT >= 49_999_999 then

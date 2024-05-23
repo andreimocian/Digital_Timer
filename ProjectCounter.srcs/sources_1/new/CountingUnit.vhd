@@ -54,8 +54,6 @@ signal AUXISEC: STD_LOGIC;
 signal AUXIMIN: STD_LOGIC;
 signal AUXCLKMIN: STD_LOGIC;
 signal AUXCLKSEC: STD_LOGIC;
-signal AUXEN: STD_LOGIC;
-signal AUX1EN: STD_LOGIC;
 
 component FreqDiv is
     port(CLK: in STD_LOGIC;

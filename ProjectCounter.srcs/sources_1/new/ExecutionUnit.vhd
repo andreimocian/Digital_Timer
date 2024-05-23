@@ -41,11 +41,6 @@ entity ExecutionUnit is
          ZERO: out STD_LOGIC;
          Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);
          LED_out : out STD_LOGIC_VECTOR (6 downto 0));
-         ------------------------------------------------------
-         --displayed_minutes10: out STD_LOGIC_VECTOR (3 downto 0);
-         --displayed_minutes01: out STD_LOGIC_VECTOR (3 downto 0);
-         --displayed_seconds10: out STD_LOGIC_VECTOR (3 downto 0);
-         --displayed_seconds01: out STD_LOGIC_VECTOR (3 downto 0));
 end ExecutionUnit;
 
 architecture Behavioral of ExecutionUnit is
@@ -92,14 +87,11 @@ signal displayed_seconds_temp01: STD_LOGIC_VECTOR (3 downto 0);
     end component;
 begin
     CLK_EN <= CLK_1hz and EN;
-    --AUX_EN <= EN or IMIN or ISEC;
+
     FD1: FreqDiv port map(CLK => CLK, EN => CLK_1hz);
     CU: CountingUnit port map(CLK => CLK_EN, UD => UD, RST => RST, EN => EN, IMIN => IMIN, ISEC => ISEC, displayed_minutes10 => displayed_minutes_temp10, displayed_minutes01 => displayed_minutes_temp01, displayed_seconds10 => displayed_seconds_temp10, displayed_seconds01 => displayed_seconds_temp01);
     SSD: SevenSegmentDisplay port map(CLK => CLK, displayed_minutes10_ssd => displayed_minutes_temp10, displayed_minutes01_ssd => displayed_minutes_temp01, displayed_seconds10_ssd => displayed_seconds_temp10, displayed_seconds01_ssd => displayed_seconds_temp01, Anode_Activate => Anode_Activate, LED_out => LED_out);
-    --displayed_minutes10 <= displayed_minutes_temp10;
-    --displayed_minutes01 <= displayed_minutes_temp01;
-    --displayed_seconds10 <= displayed_seconds_temp10;
-    --displayed_seconds01 <= displayed_seconds_temp01;
+
     process(displayed_minutes_temp10, displayed_minutes_temp01, displayed_seconds_temp10, displayed_seconds_temp01)
     begin
         if displayed_minutes_temp10 = "0000" and displayed_minutes_temp01 = "0000" and displayed_seconds_temp10 = "0000" and displayed_seconds_temp01 = "0000" then

@@ -56,19 +56,11 @@ architecture Behavioral of CommandUnit is
     signal TMPSEC: STD_LOGIC;
     
     signal TMPRST: STD_LOGIC;
-    signal TMPIMIN: STD_LOGIC;
-    signal TMPISEC: STD_LOGIC;
+
     signal TMPEN: STD_LOGIC;
     signal TMPUD: STD_LOGIC;
-    signal TMPZERO: STD_LOGIC;
     signal TMPZEROEN: STD_LOGIC;
-    --signal NEXTUD: STD_LOGIC;
     
-    signal RSTUD: STD_LOGIC;
-    signal NOTUD: STD_LOGIC;
-    signal IMINSEC: STD_LOGIC;
-    signal IMINSECUD: STD_LOGIC;
-    signal TFFUDIN: STD_LOGIC;
     signal AUXZERO: STD_LOGIC;
     signal ZEROEX: STD_LOGIC;
     
@@ -89,65 +81,18 @@ begin
     DBSEC: Debouncer port map(CLK => CLK, button => BSEC, EN => TMPSEC);
     DBSTOP: Debouncer port map(CLK => CLK, button => AUXZERO, EN => ZEROEX);
     TFFEN: TFlipFlop port map(CLK => TMPZEROEN, T => TMPZEROEN, Q => TMPEN);
-    --TFFUD: TFlipFlop port map(CLK => RSTUD, T => RSTUD, Q => TMPUD);
-    
----------------------FOR SIMULATION------------------------
-    --TMPBEN <= BEN;
-    --TMPMIN <= BMIN;
-    --TMPSEC <= BSEC;
------------------------------------------------------------
+
       
     MINSECXOR <= TMPMIN xor TMPSEC;
     MINAND <= MINSECXOR and TMPMIN;
     SECAND <= MINSECXOR and TMPSEC;
     
     TMPRST <= BMIN and BSEC;
+    
     TMPUD <= UDIN;
-    
     AUXZERO <= ZERO and TMPUD;
-    
     TMPZEROEN <= ZEROEX or TMPBEN;
-    
-    --RSTUD <= TMPRST and TMPUD;
-    
---    process(TMPRST, MINAND, SECAND, TMPBEN)
---        variable NEXTUD: STD_LOGIC;
---    begin
---        if TMPRST = '1' then
---            TMPUD <= '0';
---        end if;
---        if MINAND = '1' or SECAND = '1' then
---            NEXTUD := '1';
---        end if;
---        if TMPEN = '1' and NEXTUD = '1' then
---            NEXTUD := '0';
---            TMPUD <= '1';
---        end if;
---    end process;
-    
---    process(TMPRST, TMPBEN)
---    begin
---        if TMPRST = '1' then
---            TMPUD <= '0';
---        end if;
---        if TMPBEN = '1' and NEXTUD = '1' then
---            NEXTUD <= '0';
---            TMPUD <= '1';
---        end if;
---    end process;
-    
---    process(MINAND, SECAND)
---    begin
---        if rising_edge(MINAND) or rising_edge(SECAND) then
---            NEXTUD <= '1';
---        end if;
---    end process;
         
-    --NOTUD <= not TMPUD;
-    --IMINSEC <= MINAND or SECAND;
-    --IMINSECUD <= NOTUD and IMINSEC;
-    --TFFUDIN <= IMINSECUD or RSTUD;
-    
     
     EN <= TMPEN;
     IMIN <= MINAND;
