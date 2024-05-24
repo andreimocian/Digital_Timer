@@ -1,1 +1,0 @@
--wto "f53ffc099b3f427096b7aa214af4fff6" --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "CountingUnit_behav" "xil_defaultlib.CountingUnit" -log "elaborate.log" 

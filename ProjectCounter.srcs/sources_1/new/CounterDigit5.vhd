@@ -1,36 +1,6 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 04/18/2024 04:51:18 PM
--- Design Name: 
--- Module Name: CounterDigit5 - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_unsigned.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CounterDigit5 is
     port(RST: in STD_LOGIC;
@@ -48,7 +18,7 @@ begin
         begin
             if RST = '1' then
                 COUNT <= (others => '0');
-            elsif CLK = '1' and CLK'EVENT then
+            elsif rising_edge(CLK) then
                 if EN = '1' then
                     if UD = '0' then
                         COUNT <= COUNT + 1;

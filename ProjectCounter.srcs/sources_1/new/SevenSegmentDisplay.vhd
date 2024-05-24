@@ -1,36 +1,6 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 04/20/2024 08:27:40 PM
--- Design Name: 
--- Module Name: SevenSegmentDisplay - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity SevenSegmentDisplay is
     Port(CLK: in STD_LOGIC;
@@ -44,7 +14,7 @@ end SevenSegmentDisplay;
 
 architecture Behavioral of SevenSegmentDisplay is
 signal LED_BCD: STD_LOGIC_VECTOR (3 downto 0);
-signal refresh_counter: STD_LOGIC_VECTOR (17 downto 0);
+    signal refresh_counter: STD_LOGIC_VECTOR (16 downto 0);
 signal LED_activating_counter: std_logic_vector(1 downto 0);
 begin
     process(LED_BCD)
@@ -60,7 +30,7 @@ begin
             when "0111" => LED_out <= "0001111"; -- "7" 
             when "1000" => LED_out <= "0000000"; -- "8"     
             when "1001" => LED_out <= "0000100"; -- "9" 
-            when others => --LED_OUT <= "0000000";
+            when others =>
         end case;
     end process;
     
@@ -70,7 +40,7 @@ begin
             refresh_counter <= refresh_counter + 1;
         end if;
     end process;
-    LED_activating_counter <= refresh_counter(17 downto 16);
+    LED_activating_counter <= refresh_counter(16 downto 15);
 
     process(LED_activating_counter)
     begin
@@ -88,8 +58,6 @@ begin
                 Anode_Activate <= "1110"; 
                 LED_BCD <= displayed_seconds01_ssd(3 downto 0);  
             when others => 
-                --Anode_Activate <= "1111"; 
-                --LED_BCD <= displayed_minutes(7 downto 4);
             end case;
     end process;
 end Behavioral;

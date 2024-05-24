@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/TFlipFlop.vhd"
+vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/Debouncer.vhd"
+vhdl xil_defaultlib  "../../../ProjectCounter.srcs/sources_1/new/CommandUnit.vhd"
+
+# Do not sort compile order
+nosort
