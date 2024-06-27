@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
-| Date         : Thu May 23 17:37:31 2024
+| Date         : Sun Jun 02 23:52:39 2024
 | Host         : LAPTOP-KN9N3SBV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TOP_control_sets_placed.rpt
 | Design       : TOP
@@ -51,8 +51,8 @@ Table of Contents
 |  CU/DBSTOP/T               |                          |                  |                1 |              1 |
 |  CLK_IBUF_BUFG             | CU/DBEN/eqOp             |                  |                2 |              3 |
 |  EU/CU/CS10/COUNT_reg[0]_0 | CU/DBMIN/E[0]            | EU/CU/CM10/AR[0] |                1 |              4 |
-|  CU/DBSEC/CLK              | CU/DBSEC/COUNT_reg[3][0] | EU/CU/CM10/AR[0] |                1 |              4 |
 |  EU/CU/CM01/CLK            | CU/DBMIN/E[0]            | EU/CU/CM10/AR[0] |                1 |              4 |
+|  CU/DBSEC/CLK              | CU/DBSEC/COUNT_reg[3][0] | EU/CU/CM10/AR[0] |                1 |              4 |
 |  EU/CU/CS01/CLK            | CU/DBSEC/COUNT_reg[3][0] | EU/CU/CM10/AR[0] |                1 |              4 |
 |  EU/CU/CM01/E[0]           |                          |                  |                2 |              7 |
 |  CLK_IBUF_BUFG             |                          | EU/FD1/clear     |                7 |             26 |

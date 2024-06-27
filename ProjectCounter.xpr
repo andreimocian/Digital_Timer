@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="17" Path="D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.xpr">
+<Project Version="7" Minor="17" Path="D:/UTCN/Sem2/DSD/Labs/Digital_Timer_Mocian_Andrei/Digital_Timer/ProjectCounter.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="f53ffc099b3f427096b7aa214af4fff6"/>
@@ -121,7 +121,7 @@
       <Filter Type="Constrs"/>
       <File Path="$PSRCDIR/constrs_1/imports/Constraint files/Basys3_Master.xdc">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Constraint files/Basys3_Master.xdc"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Constraint files/Basys3_Master.xdc"/>
           <Attr Name="ImportTime" Val="1713342789"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

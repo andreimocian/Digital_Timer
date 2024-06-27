@@ -2,11 +2,11 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Thu May 23 17:36:31 2024
-# Process ID: 15472
-# Current directory: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1
+# Start of session at: Sun Jun 02 23:51:21 2024
+# Process ID: 18456
+# Current directory: D:/UTCN/Sem2/DSD/Labs/Digital_Timer_Mocian_Andrei/Digital_Timer/ProjectCounter.runs/synth_1
 # Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
-# Log file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1/TOP.vds
-# Journal file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer/ProjectCounter.runs/synth_1\vivado.jou
+# Log file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer_Mocian_Andrei/Digital_Timer/ProjectCounter.runs/synth_1/TOP.vds
+# Journal file: D:/UTCN/Sem2/DSD/Labs/Digital_Timer_Mocian_Andrei/Digital_Timer/ProjectCounter.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source TOP.tcl -notrace
